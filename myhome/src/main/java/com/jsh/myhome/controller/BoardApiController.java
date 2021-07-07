@@ -35,6 +35,7 @@ class BoardApiController {
 
     @GetMapping("/boards/{id}")
     Board one(@PathVariable Long id) {
+
         return repository.findById(id).orElse(null);
     }
 
@@ -56,6 +57,7 @@ class BoardApiController {
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/boards/{id}")
     void deleteBoard(@PathVariable Long id) {
+
         repository.deleteById(id);
     }
 }
